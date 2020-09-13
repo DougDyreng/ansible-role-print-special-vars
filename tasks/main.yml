@@ -1,0 +1,64 @@
+---
+- name: "Print magic variables"
+  vars:
+    magic_vars: |-
+        ansible_check_mode: {{ ansible_check_mode | default }}
+        ansible_dependent_role_names: {{ ansible_dependent_role_names | default }}
+        ansible_diff_mode: {{ ansible_diff_mode | default }}
+        ansible_forks: {{ ansible_forks | default }}
+        ansible_inventory_sources: {{ ansible_inventory_sources | default }}
+        ansible_limit: {{ ansible_limit | default }}
+        ansible_loop: {{ ansible_loop | default }}
+        ansible_loop_var: {{ ansible_loop_var | default }}
+        ansible_index_var: {{ ansible_index_var | default }}
+        ansible_parent_role_names: {{ ansible_parent_role_names | default }}
+        ansible_parent_role_paths: {{ ansible_parent_role_paths | default }}
+        ansible_play_batch: {{ ansible_play_batch | default }}
+        ansible_play_hosts: {{ ansible_play_hosts | default }}
+        ansible_play_hosts_all: {{ ansible_play_hosts_all | default }}
+        ansible_play_role_names: {{ ansible_play_role_names | default }}
+        ansible_playbook_python: {{ ansible_playbook_python | default }}
+        ansible_role_names: {{ ansible_role_names | default }}
+        ansible_role_name: {{ ansible_role_name | default }}
+        ansible_collection_name: {{ ansible_collection_name | default }}
+        ansible_run_tags: {{ ansible_run_tags | default }}
+        ansible_search_path: {{ ansible_search_path | default }}
+        ansible_skip_tags: {{ ansible_skip_tags | default }}
+        ansible_verbosity: {{ ansible_verbosity | default }}
+        ansible_version: {{ ansible_version | default }}
+        group_names: {{ group_names | default }}
+        groups: {{ groups | default }}
+        hostvars: {{ hostvars | default }}
+        inventory_hostname: {{ inventory_hostname | default }}
+        inventory_hostname_short: {{ inventory_hostname_short | default }}
+        inventory_dir: {{ inventory_dir | default }}
+        inventory_file: {{ inventory_file | default }}
+        omit: {{ omit | default }}
+        play_hosts: {{ play_hosts | default }}
+        ansible_play_name: {{ ansible_play_name | default }}
+        playbook_dir: {{ playbook_dir | default }}
+        role_name: {{ role_name | default }}
+        role_names: {{ role_names | default }}
+        role_path: {{ role_path | default }}
+  debug:
+    msg: "{{ magic_vars.split('\n') }}"
+
+- name: "Print facts"
+  vars:
+    facts: ansible_facts | default | to_nice_json
+    local: ansible_local | default | to_nice_json
+  debug:
+    msg: 
+      - "{{ ansible_facts }}"
+      - "{{ ansible_local }}"
+      
+- name: "Print connection variables"
+  vars:
+    connection_vars: |-
+      ansible_become_user: {{ ansible_become_user | default }}
+      ansible_connection: {{ ansible_connection | default }}
+      ansible_host: {{ ansible_host | default }}
+      ansible_python_interpreter: {{ ansible_python_interpreter | default }}
+      ansible_user: {{ ansible_user | default }}
+  debug:
+    msg: "{{ connection_vars.split('\n') }}"

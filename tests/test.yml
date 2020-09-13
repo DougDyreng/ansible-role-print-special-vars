@@ -1,0 +1,4 @@
+---
+- hosts: localhost
+  roles:
+    - print_special_vars
