@@ -2,8 +2,8 @@
 galaxy_info:
   author: '@faupol3'
   role_name: print_special_vars
-  description: |-
-    Print out all special variables as defined 
+  description: >
+    Print out all special variables as defined
     in the ansible official documentation.
   license: Beerware
   min_ansible_version: 2.9

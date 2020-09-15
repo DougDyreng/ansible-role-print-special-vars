@@ -7,3 +7,6 @@ rules:
       - 'false'
       - 'yes'
       - 'no'
+  line-length:
+    max: 80
+    level: warning
