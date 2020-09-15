@@ -48,7 +48,7 @@
     facts: ansible_facts | default | to_nice_json
     local: ansible_local | default | to_nice_json
   debug:
-    msg: 
+    msg:
       - "{{ ansible_facts }}"
       - "{{ ansible_local }}"
       
