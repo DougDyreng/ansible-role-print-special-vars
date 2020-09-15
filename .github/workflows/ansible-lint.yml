@@ -5,14 +5,14 @@ jobs:
   ansible-lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Lint Ansible Playbook
-      uses: ansible/ansible-lint-action@master
-      with:
-        targets: |
-          handlers/*.yml
-          tasks/*.yml
-          tests/*.yml
-        override-deps: |
-          ansible==2.9
-          ansible-lint==4.2.0
+      - uses: actions/checkout@v2
+      - name: Lint Ansible Playbook
+        uses: ansible/ansible-lint-action@master
+        with:
+          targets: |
+            handlers/*.yml
+            tasks/*.yml
+            tests/*.yml
+          override-deps: |
+            ansible==2.9
+            ansible-lint==4.2.0
