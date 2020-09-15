@@ -51,7 +51,7 @@
     msg:
       - "{{ ansible_facts }}"
       - "{{ ansible_local }}"
-      
+
 - name: "Print connection variables"
   vars:
     connection_vars: |-
