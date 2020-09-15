@@ -1,0 +1,18 @@
+---
+name: Ansible Lint
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Lint Ansible Playbook
+      uses: ansible/ansible-lint-action@4.1.0
+      with:
+        targets: |
+          handlers/*.yml
+          tasks/*.yml
+          tests/*.yml
+        override-deps: |
+          ansible==2.9
+          ansible-lint==4.2.0
